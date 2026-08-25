@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import TabBar from "../component/Bar/TabBar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ProfileComponent from "../component/Profile/ProfileComponent";
 
-export default function ProfileScreen() {
+export default function UsersScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ProfileComponent />
+            <Text>
+                This is a test app. You can edit the code in App.tsx to see changes reflected here.
+            </Text>
             <TabBar />
         </SafeAreaView>
     );

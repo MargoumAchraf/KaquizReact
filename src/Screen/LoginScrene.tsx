@@ -1,4 +1,4 @@
-import LoginComponent from '../component/LoginComponent';
+import LoginComponent from '../component/LoginComponent/LoginComponent';
 
 
 export default function LoginScreen({ navigation }: { navigation?: any }) {

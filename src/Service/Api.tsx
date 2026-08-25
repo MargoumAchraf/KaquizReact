@@ -1,0 +1,1 @@
+export const api = "https://crusader-arming-riverboat.ngrok-free.dev"
