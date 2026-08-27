@@ -13,22 +13,36 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: '#94a3b8',
   },
+  friendAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    marginRight: 12,
+  },
+
   friendRow: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+  },
+
+  friendInfo: {
+    flex: 1,
   },
   friendName: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
     color: '#0f172a',
   },
   friendEmail: {
     fontSize: 13,
-    color: '#94a3b8',
-    marginTop: 2,
+    fontWeight: '400',
+    color: '#64748b',
   },
+
+
+
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,18 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import TabBar from "../component/Bar/TabBar";
 import { SafeAreaView } from "react-native-safe-area-context";
+import UsersComponent from "../component/UsersComponent/UsersComponent";
 
 export default function UsersScreen() {
 
     return (
-        <SafeAreaView style={styles.container}>
-            <Text>
-                This is a test app. You can edit the code in App.tsx to see changes reflected here.
-            </Text>
-            <TabBar />
+       <SafeAreaView style={styles.container}>
+          <UsersComponent/>
+          <TabBar/>
         </SafeAreaView>
     );
 }
+
 
 
 
