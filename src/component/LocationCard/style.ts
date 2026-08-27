@@ -29,4 +29,10 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#0f172a',
   },
+  errorText: {
+    marginLeft: 8,
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ef4444',
+  },
 });
