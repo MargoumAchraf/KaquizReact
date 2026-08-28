@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, FlatList, TextInput, ActivityIndicator, Image } from 'react-native';
+import { View, Text, FlatList, TextInput, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NavigationProp, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 
 const API_URL = 'https://crusader-arming-riverboat.ngrok-free.dev/api/friends';
 const IMAGE_BASE_URL = 'https://crusader-arming-riverboat.ngrok-free.dev';
@@ -18,7 +19,19 @@ type Friend = {
   longitude: number;
 };
 
+export type RootStackParamList = {
+  Map: { userId: number };
+  FriendsList: undefined;
+  // ...other screens
+};
+type MapRouteProp = RouteProp<RootStackParamList, 'Map'>;
+
 export default function FriendsList() {
+
+
+
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
   const [friends, setFriends] = useState<Friend[]>([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
@@ -120,20 +133,23 @@ export default function FriendsList() {
         data={filteredFriends}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.friendRow}>
-            <Image
-              source={{ uri: resolveImageUri(item.image) }}
-              style={styles.friendAvatar}
-            />
-            <View style={styles.friendInfo}>
-              <Text style={styles.friendName} numberOfLines={1}>
-                {item.username}
-                {item.email ? (
-                  <Text style={styles.friendEmail}> · {item.email}</Text>
-                ) : null}
-              </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Map', { userId: item.id })} >
+            <View style={styles.friendRow}>
+              <Image
+                source={{ uri: resolveImageUri(item.image) }}
+                style={styles.friendAvatar}
+              />
+              <View style={styles.friendInfo}>
+                <Text style={styles.friendName} numberOfLines={1}>
+                  {item.username}
+                  {item.email ? (
+                    <Text style={styles.friendEmail}> · {item.email}</Text>
+                  ) : null}
+                </Text>
+              </View>
             </View>
-          </View>
+          </TouchableOpacity>
+
         )}
         style={styles.list}
         ListEmptyComponent={
